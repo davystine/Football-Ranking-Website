@@ -1,27 +1,27 @@
-/* Custom styles for dark mode */
-body.dark-mode {
+/* Custom styles for theme mode */
+body.theme-dark {
     background-color: #121212;
     color: #ffffff; /* Text color in dark mode */
 }
 
-body.dark-mode .navbar {
+body.theme-dark .navbar {
     background-color: #1c1c1c !important; /* Dark mode navbar background */
 }
 
-body.dark-mode .navbar-dark .navbar-nav .nav-link {
+body.theme-dark .navbar-dark .navbar-nav .nav-link {
     color: #ffffff; /* Dark mode navbar link color */
 }
 
-body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+body.theme-dark .table-striped tbody tr:nth-of-type(odd) {
     background-color: #2c2c2c; /* Dark mode table odd row background */
 }
 
-body.dark-mode .table-striped tbody td,
-body.dark-mode .table-striped thead th {
+body.theme-dark .table-striped tbody td,
+body.theme-dark .table-striped thead th {
     color: #ffffff; /* Dark mode table text color */
 }
 
-body.dark-mode .footer {
+body.theme-dark .footer {
     background-color: #1c1c1c;
     color: #ffffff; /* Dark mode footer text color */
 }
@@ -38,6 +38,7 @@ body {
 
 main {
     flex: 1;
+    padding-top: 5rem; /* Ensure enough padding from the fixed navbar */
 }
 
 footer {
@@ -47,8 +48,10 @@ footer {
 .carousel-caption {
     background-color: rgba(0, 0, 0, 0.5); /* Black background with transparency */
     color: white;
-    padding: 10px;
+    padding: 5px 10px; /* Adjust padding for a snug fit */
     border-radius: 5px;
+    display: inline-block; /* Make the box fit the text size */
+    max-width: 100%; /* Ensure it doesn't overflow the container */
 }
 
 .carousel-control-prev-icon,
@@ -61,3 +64,9 @@ footer {
     height: 600px; /* Adjust the height as needed */
     object-fit: cover; /* Ensures the image covers the area */
 }
+
+/* Transparent navbar */
+.navbar.bg-transparent {
+    background-color: rgba(0, 0, 0, 1) !important; /* Transparent background with slight black tint */
+}
+

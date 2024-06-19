@@ -12,7 +12,7 @@
 <body>
     <header class="sticky-top bg-dark text-white">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
                 <a class="navbar-brand" href="#">Football Clubs</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,8 +23,11 @@
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
+                    <div class="custom-control custom-switch ml-3">
+                        <input type="checkbox" class="custom-control-input" id="themeToggleSwitch">
+                        <label class="custom-control-label text-white" for="themeToggleSwitch">Switch Theme</label>
+                    </div>
                 </div>
-                <button id="darkModeToggle" class="btn btn-secondary">Switch Theme</button>
             </nav>
         </div>
     </header>

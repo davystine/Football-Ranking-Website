@@ -1,6 +1,6 @@
 $(document).ready(function() {
     let clubs = [];
-    let isDarkMode = false;
+    let isThemeDark = false;
 
     // Handle form submission to add a new club
     $('#addClubForm').submit(function(event) {
@@ -71,9 +71,9 @@ $(document).ready(function() {
         });
     }
 
-    // Handle dark mode toggle
-    $('#darkModeToggle').click(function() {
-        $('body').toggleClass('dark-mode'); // Toggle dark mode class
-        isDarkMode = !isDarkMode;
+    // Handle theme toggle switch
+    $('#themeToggleSwitch').change(function() {
+        $('body').toggleClass('theme-dark'); // Toggle theme class
+        isThemeDark = !isThemeDark;
     });
 });

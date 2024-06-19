@@ -12,7 +12,7 @@
 <body>
     <header class="sticky-top bg-dark text-white">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-dark">
+            <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
                 <a class="navbar-brand" href="#">Football Clubs</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,50 +23,16 @@
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
+                    <div class="custom-control custom-switch ml-3">
+                        <input type="checkbox" class="custom-control-input" id="themeToggleSwitch">
+                        <label class="custom-control-label text-white" for="themeToggleSwitch">Switch Theme</label>
+                    </div>
                 </div>
-                <button id="darkModeToggle" class="btn btn-secondary">Switch Theme</button>
             </nav>
         </div>
     </header>
-
     <main class="container mt-4">
         <h1 class="text-center">About Us</h1>
-
-        <div id="aboutCarousel" class="carousel slide mb-4" data-ride="carousel" style="max-width: 600px; margin: auto;">
-            <div class="carousel-inner">
-                <div class="carousel-item active text-center">
-                    <img src="/images/manchester-united-seeklogo-4.svg" class="d-block w-100" style="height: 400px; object-fit: contain;" alt="Manchester United">
-                    <div class="carousel-caption d-block">
-                        <h5>Manchester United FC</h5>
-                        <p>Short description about Manchester United.</p>
-                    </div>
-                </div>
-                <div class="carousel-item text-center">
-                    <img src="/images/real-madrid-club-crest-new-seeklogo.png" class="d-block w-100" style="height: 400px; object-fit: contain;" alt="Real Madrid">
-                    <div class="carousel-caption d-block">
-                        <h5>Real Madrid FC</h5>
-                        <p>Short description about Real Madrid.</p>
-                    </div>
-                </div>
-                <div class="carousel-item text-center">
-                    <img src="/images/manchester-city-fc-new-seeklogo.png" class="d-block w-100" style="height: 400px; object-fit: contain;" alt="Manchester City">
-                    <div class="carousel-caption d-block">
-                        <h5>Manchester City FC</h5>
-                        <p>Short description about Manchester City.</p>
-                    </div>
-                </div>
-                <!-- Add more carousel items as needed -->
-            </div>
-            <a class="carousel-control-prev" href="#aboutCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#aboutCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-4">
