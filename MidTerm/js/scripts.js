@@ -3,26 +3,6 @@ $(document).ready(function() {
     let clubs = [];
     let isThemeDark = false;
 
-    // Function to handle form submission for contact form
-    $('#contactForm').submit(function(event) {
-        event.preventDefault(); // Prevent default form submission
-        // Retrieve form values
-        const userName = $('#userName').val();
-        const userEmail = $('#userEmail').val();
-        const userPhone = $('#userPhone').val();
-        const userMessage = $('#userMessage').val();
-
-        // Display user details and message in an alert (you can customize this)
-        const message = `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nMessage: ${userMessage}`;
-        alert(message);
-
-        // Optionally, clear the form fields after submission
-        $('#userName').val('');
-        $('#userEmail').val('');
-        $('#userPhone').val('');
-        $('#userMessage').val('');
-    });
-
     // Function to render the clubs table
     function renderTable() {
         const $tbody = $('#clubsList');
@@ -92,9 +72,31 @@ $(document).ready(function() {
         });
     }
 
+    // Function to handle form submission for contact form
+    $('#contactForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Retrieve form values
+        const userName = $('#userName').val();
+        const userEmail = $('#userEmail').val();
+        const userPhone = $('#userPhone').val();
+        const userMessage = $('#userMessage').val();
+
+        // Display user details and message in an alert (you can customize this)
+        const message = `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nMessage: ${userMessage}`;
+        alert(message);
+
+        // Optionally, clear the form fields after submission
+        $('#userName').val('');
+        $('#userEmail').val('');
+        $('#userPhone').val('');
+        $('#userMessage').val('');
+    });
+
     // Handle theme toggle switch
     $('#themeToggleSwitch').change(function() {
         $('body').toggleClass('theme-dark'); // Toggle theme class
         isThemeDark = !isThemeDark;
     });
+
+
 });
