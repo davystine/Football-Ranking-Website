@@ -4,6 +4,10 @@ body.theme-dark {
     color: #ffffff; /* Text color in dark mode */
 }
 
+body.theme-dark .card-body {
+    color: rgb(0, 0, 0, 1); 
+}
+
 body.theme-dark .navbar {
     background-color: #1c1c1c !important; /* Dark mode navbar background */
 }

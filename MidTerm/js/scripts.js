@@ -1,19 +1,26 @@
 $(document).ready(function() {
+    // Array to store football clubs
     let clubs = [];
     let isThemeDark = false;
 
-    // Handle form submission to add a new club
-    $('#addClubForm').submit(function(event) {
-        event.preventDefault();
-        const clubName = $('#clubName').val();
-        const clubCountry = $('#clubCountry').val();
-        const clubPoints = $('#clubPoints').val();
-        const newClub = { name: clubName, country: clubCountry, points: parseInt(clubPoints) };
-        clubs.push(newClub);
-        $('#clubName').val('');
-        $('#clubCountry').val('');
-        $('#clubPoints').val('');
-        renderTable(); // Render the updated table
+    // Function to handle form submission for contact form
+    $('#contactForm').submit(function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Retrieve form values
+        const userName = $('#userName').val();
+        const userEmail = $('#userEmail').val();
+        const userPhone = $('#userPhone').val();
+        const userMessage = $('#userMessage').val();
+
+        // Display user details and message in an alert (you can customize this)
+        const message = `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nMessage: ${userMessage}`;
+        alert(message);
+
+        // Optionally, clear the form fields after submission
+        $('#userName').val('');
+        $('#userEmail').val('');
+        $('#userPhone').val('');
+        $('#userMessage').val('');
     });
 
     // Function to render the clubs table
@@ -30,6 +37,20 @@ $(document).ready(function() {
             $tbody.append($row);
         });
     }
+
+    // Handle form submission to add a new club
+    $('#addClubForm').submit(function(event) {
+        event.preventDefault();
+        const clubName = $('#clubName').val();
+        const clubCountry = $('#clubCountry').val();
+        const clubPoints = $('#clubPoints').val();
+        const newClub = { name: clubName, country: clubCountry, points: parseInt(clubPoints) };
+        clubs.push(newClub);
+        $('#clubName').val('');
+        $('#clubCountry').val('');
+        $('#clubPoints').val('');
+        renderTable(); // Render the updated table
+    });
 
     // Handle delete button click to remove a club from the list
     $('#clubsList').on('click', '.delete-btn', function() {
