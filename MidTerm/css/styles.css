@@ -30,6 +30,12 @@ body.theme-dark .footer {
     color: #ffffff; /* Dark mode footer text color */
 }
 
+/* Specific styles for modal in dark mode */
+.theme-dark .modal-content {
+    background-color: #333333;
+    color: #ffffff;
+}
+
 /* Sticky footer adjustments */
 html, body {
     height: 100%;

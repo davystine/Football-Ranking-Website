@@ -1,21 +1,33 @@
 $(document).ready(function() {
-    // Array to store football clubs
+    // Initialize clubs array and theme preference
     let clubs = [];
-    let isThemeDark = false;
+    let isThemeDark = localStorage.getItem('isThemeDark') === 'true';
+
+    // Apply theme based on saved preference
+    if (isThemeDark) {
+        $('body').addClass('theme-dark');
+        $('#themeToggleSwitch').prop('checked', true);
+    }
 
     // Function to render the clubs table
-    function renderTable() {
-        const $tbody = $('#clubsList');
-        $tbody.empty();
-        clubs.forEach((club, index) => {
-            const $row = $(`<tr>
-                <td class="club-name" contenteditable="true">${club.name}</td>
-                <td class="club-country" contenteditable="true">${club.country}</td>
-                <td class="club-points" contenteditable="true">${club.points}</td>
-                <td><button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button></td>
-            </tr>`);
+    function renderTable(clubList) {
+        const $tbody = $('#clubsList').empty();
+        clubList.forEach((club, index) => {
+            const $row = $(`
+                <tr>
+                    <td class="club-name" contenteditable="true">${club.name}</td>
+                    <td class="club-country" contenteditable="true">${club.country}</td>
+                    <td class="club-points" contenteditable="true">${club.points}</td>
+                    <td><button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button></td>
+                </tr>
+            `);
             $tbody.append($row);
         });
+    }
+
+    // Function to update the table by re-rendering it
+    function updateTable() {
+        renderTable(clubs);
     }
 
     // Handle form submission to add a new club
@@ -23,69 +35,56 @@ $(document).ready(function() {
         event.preventDefault();
         const clubName = $('#clubName').val();
         const clubCountry = $('#clubCountry').val();
-        const clubPoints = $('#clubPoints').val();
-        const newClub = { name: clubName, country: clubCountry, points: parseInt(clubPoints) };
+        const clubPoints = parseInt($('#clubPoints').val());
+        const newClub = { name: clubName, country: clubCountry, points: clubPoints };
         clubs.push(newClub);
+        updateTable();
+        // Clear the form inputs after submission
         $('#clubName').val('');
         $('#clubCountry').val('');
         $('#clubPoints').val('');
-        renderTable(); // Render the updated table
     });
 
     // Handle delete button click to remove a club from the list
     $('#clubsList').on('click', '.delete-btn', function() {
         const index = $(this).data('index');
         clubs.splice(index, 1); // Remove the club from the array
-        renderTable(); // Render the updated table
+        updateTable(); // Re-render the table
     });
 
     // Handle sorting by ranking points
     $('.sort').click(function() {
         const sortOrder = $(this).data('sort');
+        // Sort the clubs array based on the selected order
         clubs.sort((a, b) => sortOrder === 'asc' ? a.points - b.points : b.points - a.points);
-        renderTable(); // Render the sorted table
+        updateTable(); // Re-render the table
     });
 
     // Handle search input to filter clubs
     $('#search').on('input', function() {
         const searchTerm = $(this).val().toLowerCase();
+        // Filter the clubs array based on the search term
         const filteredClubs = clubs.filter(club => 
             club.name.toLowerCase().includes(searchTerm) ||
             club.country.toLowerCase().includes(searchTerm) ||
             club.points.toString().includes(searchTerm)
         );
-        renderFilteredTable(filteredClubs); // Render the filtered table
+        renderTable(filteredClubs); // Render the filtered table
     });
 
-    // Function to render the filtered clubs table
-    function renderFilteredTable(filteredClubs) {
-        const $tbody = $('#clubsList');
-        $tbody.empty();
-        filteredClubs.forEach((club, index) => {
-            const $row = $(`<tr>
-                <td class="club-name" contenteditable="true">${club.name}</td>
-                <td class="club-country" contenteditable="true">${club.country}</td>
-                <td class="club-points" contenteditable="true">${club.points}</td>
-                <td><button class="btn btn-danger btn-sm delete-btn" data-index="${index}">Delete</button></td>
-            </tr>`);
-            $tbody.append($row);
-        });
-    }
-
-    // Function to handle form submission for contact form
+    // Handle form submission for contact form
     $('#contactForm').submit(function(event) {
         event.preventDefault(); // Prevent default form submission
-        // Retrieve form values
-        const userName = $('#userName').val();
-        const userEmail = $('#userEmail').val();
-        const userPhone = $('#userPhone').val();
-        const userMessage = $('#userMessage').val();
-
-        // Display user details and message in an alert (you can customize this)
-        const message = `Name: ${userName}\nEmail: ${userEmail}\nPhone: ${userPhone}\nMessage: ${userMessage}`;
-        alert(message);
-
-        // Optionally, clear the form fields after submission
+        const message = `
+            Name: ${$('#userName').val()}\n
+            Email: ${$('#userEmail').val()}\n
+            Phone: ${$('#userPhone').val()}\n
+            Message: ${$('#userMessage').val()}
+        `;
+        // Display the form submission data in a modal
+        $('#exampleModal .modal-body').text(message);
+        $('#exampleModal').modal('show');
+        // Clear the form inputs after submission
         $('#userName').val('');
         $('#userEmail').val('');
         $('#userPhone').val('');
@@ -95,14 +94,7 @@ $(document).ready(function() {
     // Handle theme toggle switch
     $('#themeToggleSwitch').change(function() {
         $('body').toggleClass('theme-dark'); // Toggle theme class
-        isThemeDark = !isThemeDark;
+        isThemeDark = !isThemeDark; // Update theme preference
         localStorage.setItem('isThemeDark', isThemeDark); // Save theme preference to local storage
     });
-
-    // Load theme preference from local storage
-    if (localStorage.getItem('isThemeDark') === 'true') {
-        $('body').addClass('theme-dark');
-        $('#themeToggleSwitch').prop('checked', true);
-        isThemeDark = true;
-    }
 });
