@@ -96,7 +96,13 @@ $(document).ready(function() {
     $('#themeToggleSwitch').change(function() {
         $('body').toggleClass('theme-dark'); // Toggle theme class
         isThemeDark = !isThemeDark;
+        localStorage.setItem('isThemeDark', isThemeDark); // Save theme preference to local storage
     });
 
-
+    // Load theme preference from local storage
+    if (localStorage.getItem('isThemeDark') === 'true') {
+        $('body').addClass('theme-dark');
+        $('#themeToggleSwitch').prop('checked', true);
+        isThemeDark = true;
+    }
 });

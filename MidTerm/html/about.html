@@ -7,13 +7,17 @@
     <meta name="keywords" content="Football, Clubs, List">
     <title>Top Football Clubs</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header class="sticky-top bg-dark text-white">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-transparent">
-                <a class="navbar-brand" href="#">Football Clubs</a>
+                <a class="navbar-brand" href="index.html">
+                    <i class="fas fa-futbol"></i>
+                    Football Clubs
+                </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -34,15 +38,32 @@
     <main class="container mt-4">
         <h1 class="text-center">About Us</h1>
         <div class="row">
-            <div class="col-md-4">
-                <div class="card mb-4">
-                    <img src="/images/Avatar.jpeg" class="card-img-top" alt="David Frederick">
-                    <div class="card-body">
-                        <h5 class="card-title"> Founder: David Frederick</h5>
-                        <p class="card-text">Hello! I'm David Frederick, a final year Software Engineering student at The American College of Greece. This website was midterm project for Internet programming course.</p>
+            <div id="teamCarousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators p-2">
+                    <li data-target="#teamCarousel" data-slide-to="0" class="active bg-dark"></li>
+                    <li data-target="#teamCarousel" data-slide-to="1" class="bg-dark"></li>
+                </ol>                
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="card mb-4" style="max-width: 18rem;">
+                            <img src="../images/Avatar.jpeg" class="card-img-top" alt="David Frederick" style="height: 280px; object-fit: cover;">
+                            <div class="card-body" style="height: 220px;">
+                                <h5 class="card-title">Founder: David Frederick</h5>
+                                <p class="card-text">Hello! I'm David Frederick, a final year Software Engineering student at The American College of Greece. This website was midterm project for Internet programming course.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card mb-4" style="max-width: 18rem;">
+                            <img src="../images/ChatGPT.png" class="card-img-top" alt="ChatGPT" style="height: 280px; object-fit: cover;">
+                            <div class="card-body" style="height: 220px;">
+                                <h5 class="card-title">Team: ChatGPT</h5>
+                                <p class="card-text">I'm ChatGPT, an AI language model developed by OpenAI, here to assist with information and tasks related to this website.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </div>            
             <div class="col-md-8">
                 <p class="text-justify">Welcome to our Football Clubs website! This platform is dedicated to ranking football clubs based on their ranking points, which are derived from their performance over time. Our aim is to provide an up to date and comprehensive ranking system that reflects the true prowess and consistency of football clubs around the world. We analyze various metrics, including match results, tournament wins, and historical performance, to ensure our rankings are accurate and fair. Whether you're a passionate football fan or a curious newcomer, our website offers insights and detailed information on the top football clubs globally.</p>
             </div>
@@ -53,15 +74,21 @@
         <div class="container">
             <p>&copy; 2024 Football Clubs. All rights reserved.</p>
             <div>
-                <a href="https://twitter.com" target="_blank" class="text-white">Twitter</a> |
-                <a href="https://facebook.com" target="_blank" class="text-white">Facebook</a> |
-                <a href="https://instagram.com" target="_blank" class="text-white">Instagram</a>
+                <a href="https://twitter.com" target="_blank" class="text-white mx-2">
+                    <i class="fab fa-twitter" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://facebook.com" target="_blank" class="text-white mx-2">
+                    <i class="fab fa-facebook" style="font-size: 30px;"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" class="text-white mx-2">
+                    <i class="fab fa-instagram" style="font-size: 30px;"></i>
+                </a>
             </div>
         </div>
     </footer>
     
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="../js/scripts.js"></script>
 </body>
 </html>
